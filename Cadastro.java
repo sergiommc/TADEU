@@ -64,11 +64,12 @@ private Animal a;
 	}
 
 	public void removerAnimal(String nome) {
-		boolean foiLocalizado = false;
-		/*
-		 * Para contado começando a partir de 0; contador < tamanho total da
-		 * lista; contador vai de um em um, sempre somando
-		 */
+		boolean profFoiLocalizado = false;
+		if (this.lista.isEmpty()) {
+			JOptionPane.showMessageDialog(null,
+					"Erro na busca: Nenhuma moto estacionada.");
+		}// senão... procurar moto
+		else {
 		for (int i = 0; i < lista.size(); i++) {
 			Animal anim = (Animal) lista.get(i);
 			
@@ -80,11 +81,11 @@ private Animal a;
 						+ " removido");
 				lista.remove(i);
 				
-				foiLocalizado = true;
+				profFoiLocalizado = true;
 			}
 		}
-		/* Se o professor não for localizado, então */
-		if (!foiLocalizado) {
+		}	
+		if (!profFoiLocalizado) {
 			JOptionPane.showMessageDialog(null,
 					"Impossível concluir ação, Não tem animal com esse nome");
 
